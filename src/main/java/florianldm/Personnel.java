@@ -1,8 +1,9 @@
 package florianldm;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public final class Personnel implements Composant {
+public final class Personnel implements Composant, Serializable {
     /** Nom. */
     private final String nom;
     /** Prenom. */

@@ -1,10 +1,11 @@
 package florianldm;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class Groupe implements Composant {
+public class Groupe implements Composant, Serializable {
     /** Collection représentant le personnel du groupe. */
     private Collection c;
 
