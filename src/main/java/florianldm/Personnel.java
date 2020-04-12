@@ -1,5 +1,5 @@
 package florianldm;
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -98,6 +98,30 @@ public final class Personnel implements Composant, Serializable {
         prenom = builder.prenom;
         naissance = builder.naissance;
         tel = builder.tel;
+    }
+
+    /**
+     * Permet d'écrire l'objet dans un fichier -> sérialisation.
+     * @param File chemin vers le fichier.
+     */
+    public void serialize(final String File) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(File)))) {
+            out.writeObject(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Permet de lire un objet de fichier -> désérialisation.
+     * @param File chemin vers le fichier.
+     */
+    public void deserialize(final String File) {
+        try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(File)))) {
+            in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
