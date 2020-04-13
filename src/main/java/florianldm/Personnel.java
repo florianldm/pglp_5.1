@@ -116,12 +116,22 @@ public final class Personnel implements Composant, Serializable {
      * Permet de lire un objet de fichier -> désérialisation.
      * @param File chemin vers le fichier.
      */
-    public void deserialize(final String File) {
+    public Personnel deserialize(final String File) {
+        Personnel p = null;
         try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(File)))) {
-            in.readObject();
+            p = (Personnel)in.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return p;
+    }
+
+    /**
+     * Retourne le nom.
+     * @return nom du personnel.
+     */
+    public String nom() {
+        return this.nom;
     }
 
     @Override

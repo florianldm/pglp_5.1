@@ -65,11 +65,21 @@ public class Groupe implements Composant, Serializable {
      * Permet de lire un objet de fichier -> désérialisation.
      * @param File chemin vers le fichier.
      */
-    public void deserialize(final String File) {
+    public Groupe deserialize(final String File) {
+        Groupe g = null;
         try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(File)))) {
-            in.readObject();
+            g = (Groupe)in.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return g;
+    }
+
+    /**
+     * Retourne la liste des personnels.
+     * @return liste.
+     */
+    public Collection getC() {
+        return c;
     }
 }

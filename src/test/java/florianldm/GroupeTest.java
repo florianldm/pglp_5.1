@@ -2,6 +2,7 @@ package florianldm;
 
 import org.junit.*;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -42,6 +43,20 @@ public class GroupeTest {
     public void testSuppression() {
         g.remove(p);
         g.remove(p1);
-        Assert.assertEquals(false, g.remove(p));
+        Assert.assertFalse(g.remove(p));
+    }
+
+    /**
+     * Test de serialisation.
+     */
+    @Test
+    public void testSerialisation() {
+        File file = new File("groupe.g");
+        g.serialize("groupe.g");
+        Groupe g1 = g.deserialize("groupe.g");
+        if (file.delete()) {
+            Assert.assertEquals(g.getC(),g1.getC());
+        }
+        else Assert.assertEquals("4","2");
     }
 }
