@@ -6,6 +6,9 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class Groupe implements Composant, Serializable {
+
+    /** Nom du groupe. */
+    private String nom;
     /** Collection représentant le personnel du groupe. */
     private Collection c;
 
@@ -81,5 +84,13 @@ public class Groupe implements Composant, Serializable {
      */
     public Collection getC() {
         return c;
+    }
+
+    /**
+     * Setter nom du groupe.
+     * @param nom à ajouter.
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }

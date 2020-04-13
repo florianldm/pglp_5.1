@@ -134,6 +134,7 @@ public final class Personnel implements Composant, Serializable {
         return this.nom;
     }
 
+
     @Override
     public void afficheNom() {
 
