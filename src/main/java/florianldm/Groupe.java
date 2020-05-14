@@ -53,11 +53,11 @@ public class Groupe implements Composant, Serializable {
     }
 
     /**
-     * Permet d'écrire l'objet dans un fichier -> sérialisation.
-     * @param File chemin vers le fichier.
+     * Permet d'écrire l'objet dans un fichier: sérialisation.
+     * @param file chemin vers le fichier.
      */
-    public void serialize(final String File) {
-        try (ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(File)))) {
+    public void serialize(final String file) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
             out.writeObject(this);
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,13 +65,14 @@ public class Groupe implements Composant, Serializable {
     }
 
     /**
-     * Permet de lire un objet de fichier -> désérialisation.
-     * @param File chemin vers le fichier.
+     * Permet de lire un objet de fichier: désérialisation.
+     * @param file chemin vers le fichier.
+     * @return g ,un groupe lu.
      */
-    public Groupe deserialize(final String File) {
+    public Groupe deserialize(final String file) {
         Groupe g = null;
-        try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(File)))) {
-            g = (Groupe)in.readObject();
+        try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
+            g = (Groupe) in.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -88,9 +89,9 @@ public class Groupe implements Composant, Serializable {
 
     /**
      * Setter nom du groupe.
-     * @param nom à ajouter.
+     * @param nom1 à ajouter.
      */
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNom(final String nom1) {
+        this.nom = nom1;
     }
 }

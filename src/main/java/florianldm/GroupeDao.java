@@ -15,7 +15,7 @@ public class GroupeDao implements Dao<Groupe> {
      * @return optionnal de type groupe.
      */
     @Override
-    public Optional<Groupe> get(long id) {
+    public Optional<Groupe> get(final long id) {
         return Optional.ofNullable(groupes.get((int) id));
     }
 
@@ -33,7 +33,7 @@ public class GroupeDao implements Dao<Groupe> {
      * @param groupe Groupe.
      */
     @Override
-    public void save(Groupe groupe) {
+    public void save(final Groupe groupe) {
         groupes.add(groupe);
     }
 
@@ -43,7 +43,7 @@ public class GroupeDao implements Dao<Groupe> {
      * @param params tab de parametres.
      */
     @Override
-    public void update(Groupe groupe, String[] params) {
+    public void update(final Groupe groupe, final String[] params) {
         groupe.setNom(Objects.requireNonNull(params[0], "Le nom ne peut pas être nul"));
         groupes.add(groupe);
     }
@@ -53,7 +53,7 @@ public class GroupeDao implements Dao<Groupe> {
      * @param groupe .
      */
     @Override
-    public void delete(Groupe groupe) {
+    public void delete(final Groupe groupe) {
         groupes.remove(groupe);
     }
 }

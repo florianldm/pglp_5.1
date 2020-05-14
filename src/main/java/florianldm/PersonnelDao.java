@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public class PersonnelDao implements Dao<Personnel> {
 
-    /** Liste de personnels */
+    /** Liste de personnels. */
     private List<Personnel> personnels;
 
     /**
@@ -14,7 +14,7 @@ public class PersonnelDao implements Dao<Personnel> {
      * @return optional type Personnel.
      */
     @Override
-    public Optional<Personnel> get(long id) {
+    public Optional<Personnel> get(final long id) {
         return Optional.empty();
     }
 
@@ -32,7 +32,7 @@ public class PersonnelDao implements Dao<Personnel> {
      * @param personnel .
      */
     @Override
-    public void save(Personnel personnel) {
+    public void save(final Personnel personnel) {
         personnels.add(personnel);
     }
 
@@ -42,7 +42,7 @@ public class PersonnelDao implements Dao<Personnel> {
      * @param params tableau.
      */
     @Override
-    public void update(Personnel personnel, String[] params) {
+    public void update(final Personnel personnel, final String[] params) {
         System.out.println("Maj Personnel");
     }
 
@@ -51,7 +51,7 @@ public class PersonnelDao implements Dao<Personnel> {
      * @param personnel .
      */
     @Override
-    public void delete(Personnel personnel) {
+    public void delete(final Personnel personnel) {
         personnels.remove(personnel);
     }
 }

@@ -8,14 +8,23 @@ import java.util.Optional;
  * @param <T> type T.
  */
 public interface Dao<T> {
-    /** Méthode get. */
+    /** Méthode get.
+     * @param id .
+     * @return T.
+     * */
     Optional<T> get(long id);
-    /** Méthode getAll. */
+    /** Méthode getAll.
+     * @return List de type T.*/
     List<T> getAll();
-    /** Méthode save. */
+    /** Méthode save.
+     * @param t de type T.
+     */
     void save(T t);
-    /** Méthode update. */
+    /** Méthode update.
+     * @param t de type T.
+     * @param params tableau de param.*/
     void update(T t, String[] params);
-    /** Méthode delete. */
+    /** Méthode delete.
+     * @param t de type T.*/
     void delete(T t);
 }

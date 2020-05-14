@@ -101,11 +101,11 @@ public final class Personnel implements Composant, Serializable {
     }
 
     /**
-     * Permet d'écrire l'objet dans un fichier -> sérialisation.
-     * @param File chemin vers le fichier.
+     * Permet d'écrire l'objet dans un fichier: sérialisation.
+     * @param file chemin vers le fichier.
      */
-    public void serialize(final String File) {
-        try (ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(File)))) {
+    public void serialize(final String file) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
             out.writeObject(this);
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,13 +113,14 @@ public final class Personnel implements Composant, Serializable {
     }
 
     /**
-     * Permet de lire un objet de fichier -> désérialisation.
-     * @param File chemin vers le fichier.
+     * Permet de lire un objet de fichier: désérialisation.
+     * @param file chemin vers le fichier.
+     * @return p de type Personnel.
      */
-    public Personnel deserialize(final String File) {
+    public Personnel deserialize(final String file) {
         Personnel p = null;
-        try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(File)))) {
-            p = (Personnel)in.readObject();
+        try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
+            p = (Personnel) in.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
