@@ -44,7 +44,8 @@ public class GroupeDao implements Dao<Groupe> {
      */
     @Override
     public void update(final Groupe groupe, final String[] params) {
-        groupe.setNom(Objects.requireNonNull(params[0], "Le nom ne peut pas être nul"));
+        groupe.setNom(Objects.requireNonNull(
+                params[0], "Le nom ne peut pas être nul"));
         groupes.add(groupe);
     }
 
